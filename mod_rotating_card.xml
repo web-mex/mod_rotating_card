@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0" client="site" method="upgrade">
+	<name>Rotating Card CSS</name>
+	<author>WEBMEX-Stefan Schneider</author>
+	<creationDate>Feb 2021</creationDate>
+	<copyright>Copyright (C) 2005 - 2021 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@web-mex.de</authorEmail>
+	<authorUrl>www.web-mex.de</authorUrl>
+	<version>3.0.0</version>
+	<description>Simple CSS Rotating Card Effect</description>
+
+	<customContent />
+
+	<files>
+		<filename module="mod_rotating_card">mod_rotating_card.php</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<config>
+		<fields name="params">
+
+			<fieldset name="Inhalt" label="Inhalt">
+				<field name="box-title"	type="text"	label="Haupttitel" description="Haupttitel eingeben"/>
+				<field name="box-subtitle"	type="text"	label="Subtitel" description="Subtitel eingeben"/>
+
+				<field
+						name="selectarticle"
+						type="sql"
+						default="10"
+						label="Bitte drei Artikel wählen"
+						query="SELECT  id, title FROM #__content"
+						key_field="id"
+						value_field="title"
+						multiple="true"
+				/>
+				<field name="note11" type="note" class="alert alert-info"  label=" Artikel Titel = Title | Bild 1 = Kreisbild | Bild 2 = Hauptbild | Bildbeschreibung 1 = Subline Front" />
+
+				<field type="spacer" name="myspacer1" hr="true" />
+
+				<field name="box1-start" type="textarea"	label="Box1 Teaser" description=""/>
+				<field name="box1-back-teaser" type="textarea"	label="Box1 Back-Teaser" description=""/>
+
+				<field type="spacer" name="myspacer2" hr="true" />
+
+				<field name="box2-start" type="textarea"	label="Box2 Teaser" description=""/>
+				<field name="box2-back-teaser" type="textarea"	label="Box2 Back-Teaser" description=""/>
+
+				<field type="spacer" name="myspacer3" hr="true" />
+
+				<field name="box3-start" type="textarea"	label="Box3 Teaser" description=""/>
+				<field name="box3-back-teaser" type="textarea"	label="Box3 Back-Teaser" description=""/>
+
+				<field name="box3-start" type="textarea"	label="Box3 Teaser" description=""/>
+				<field name="box3-back-teaser" type="textarea"	label="Box3 Back-Teaser" description=""/>
+
+			</fieldset>
+
+			<fieldset name="modul" label="COM_MODULES_BASIC_FIELDSET_LABEL">
+				<field
+					name="prepare_content"
+					type="radio"
+					label="Inhalt vorbereiten"
+					description="MOD_CUSTOM_FIELD_PREPARE_CONTENT_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="backgroundimage"
+					type="media"
+					label="Hintergrundbild"
+					description="MOD_BACKGROUNDIMAGE_FIELD_LOGO_DESC"
+				/>
+			</fieldset>
+
+
+
+
+
+
+
+
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					rows="3"
+				/>
+
+
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
